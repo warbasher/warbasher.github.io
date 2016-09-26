@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			body
+			{
+				background-image: url('http://i872.photobucket.com/albums/ab288/warbasher/bgimage_zps25cd84f7.png');
+			}
+
+			body
+			{
+				font-family:tahoma;
+				font-size:17px;
+				color:white;
+				font-weight:bold
+			}
+
+			.center{
+				width:446px;
+				height:640px;
+				position:absolute;
+				left:50%;
+				top:45%;
+				margin-left:-223px;
+				margin-top:-320px;
+			}
+			
+			/*.center{
+				width:300px;
+				height:300px;
+				position:absolute;
+				left:50%;
+				top:50%;
+				margin-left:-150px;
+				margin-top:-150px;
+			}*/
+		</style>
+		
+		<script type= "text/javascript">
+			var quoteList = [
+
+				/*{quote: "YOU FUCK FUCK FUCK YOU", person: "- guymmm"}
+				{quote: "i kill make you hotdog", person: "- _99_-[T.A.A.G]-[TZH][P]"},
+				{quote: "zs survival tips from a pro : HumansBuild bareicadd. Shot zombies until they died Zombees';.Hold don butun to kill people", person: ""},
+				{quote: "hey is that 1 free game real or fake/virs", person: "- youareit(DL){C???}(E.s.t)"},
+				{quote: "NATHINE GIVE ME YR MAGNEM I KILLED ME", person: "- warrior of war ! [sp]"},
+				{quote: "HI, i have been muted for 5000 mins. i would love to be unmuted so i can talk to other players", person: "- ReGgae MasTeR iN W33D"},
+				{quote: "I just got banned for cading, SOMEONE PLEASE TELL ME WHAT CADING IS", person: "- TurtlesIV"},
+				{quote: "Just perma-banned more brony/pony/homosexual/whatever things. Don't come back", person: "- Warbasher"},
+				{quote: "Btw, I got Cataclysm Yesterday... so OWNED", person: "- Dr. Lime"},
+				{quote: "LOL I let that black guy get hit and stole his kill at the same time", person: "- Nathan"},
+				{quote: "I went over Mr Green just to check something; They added NINE FUCKING 'Stop it, Slender' servers and they're all full WTF????", person: "- Catbox"},
+				{quote: "That faggot isn't worth a nickel", person: "- David"},
+				{quote: "i am STRONGER", person: "- Nathan"},
+				{quote: "why are you sick fuckers killing yourself with every func_door you get, does it get you hard or something?", person: "- Big Daddy"},
+				{quote: "HOW DO I CRUCH?", person: "- drbdigitizing"},
+				{quote: "WHAT THE FUCK IS THAT HIGH PITCHED SOUND THAT FUCMING MAKES ME MADD", person: "- noob"},
+				{quote: "What level do you have to be to get Silver Account?", person: "- Leland"},*/
+				{quote: "i had a daydream i was server owner", person: "- Seargent Muffin"},
+				{quote: "this server is gay its horrible go play zombie master or zps", person: "- {SoM} Hazzard"},
+				{quote: "you stupid gay faggoty moron stop", person: "- patonso"},
+				{quote: "did you kno warbasher is my dadda", person: "- Rpgraff12[DL]"},
+				{quote: "IM MORPHINF INTO SOMETHING InHuMaN", person: "- one eyed zeus Ozzy Osbourne pwn"},
+				{quote: "how do i put erzenl crets??", person: "- Deluvas"},
+				{quote: "still ignoreing..", person: "- Raiden [NG]"},
+				{quote: "hey, im gonna take down dl for a bit", person: "- TehTinehKitteh™"},
+				{quote: "dislike me most likely through i dont now y people dont liek me :(", person: "- AlphaRaIdErSfAn64"},
+				{quote: "man my keyboard is full of my hair", person: "- >> EST-LG << Brenz[DLm]"},
+				{quote: "We need an 'Expert' server. Its not fun to play with the general rabble where we need to take almost all of our time to explane how the hell to press Z or bind +zoom.", person: "- IjoreanGrey"},
+				{quote: "Don't struggle honey.", person: "- Eli Vance"},
+				{quote: "dont call me a kid", person: "- jwcolson"},
+				{quote: "We have our own proofs of stolen codes and stolen maps that have been RENAMED", person: "- +[SP]+ Ninjamcwaffles"},
+				{quote: "i beat the most kills in one game 695", person: "- AlphaRaIdErSfAn64"}, 
+				{quote: "leander can u mute the person that muted me", person: "- Hobo"},
+				{quote: "At least I'm staying quiet xD I'm only 12.", person: "- lobsterinabucket"},
+				{quote: "You're are forgetting I was a professional twice over; an analyst and a therapist. The worlds first analrapist!", person: "- Tobias Funke"},
+				{quote: "WELL I'M THE FUCKING DICKSLICER OF THE NIGHT BEND OVER OR BE BENT IN HALF", person: "- A deranged Warbasher"},
+				{quote: "I think warbasher changed my steam name again", person: "- VOSGRATH, WRECKER OF POO HOLES"},
+				{quote: "I really dont see ehy reason to live anymoar withut the particals", person: "- Convicted Partical rapest (Life's Regret)"},
+				{quote: "i get clock radio. he cannot afford. great success.", person: "- lunchboX"},
+				{quote: "GOD FUCKING FASTNIGGER HEADCRABS MASHING MOUSE1 FUCK", person: "- WHITEMEN HAVE TAKEN THE HOMELAN"},
+				{quote: "SHUT UP LITTLE JEWFUCK", person: "- T51-BROTHERHOOD POWER ARMOR"},
+				{quote: "TRUEREBEL GET AWAY FROM THE BARRICADE THE AI CAN KILL YOU", person: "- jblaffert"},
+				{quote: "why did i die that many times holy shit my redeem delay is 5 minutes", person: "- SpadedAces"},
+				{quote: "while you're waiting 30 minutes to download our unique content from workshop, feel free to join our vanilla white power RP.", person: "- Nathan"},
+				{quote: "I'm gonna shove a fucking rod up your ass, but hand craft it perfectly, so it's not too big and not too small. Just right. Just how you'd like it, you piece of shit.", person: "- Warbasher"},
+				{quote: "CLIENT-SIDE MUTE! IS YOUR EGO TOO STRONG FOR THAT? THAT IS WHAT CLIENT-SIDE MUTE IS FOR", person: "- Dingo"},
+				{quote: "I have a dream that my four little props will one day live in a barricade where they will not be judged by the model they use, but by the content of their quality.", person: "- Martin Luther Blueshelf"},
+				{quote: "You sound like some horny, 9 year old drug dealer on RP that just got admin and is drunk off their own power", person: "- RP Combat Philosopher"},
+				{quote: "go back to france ya damn communist", person: "Braindawg"},
+				{quote: "is barwasher autistic", person: "Pindrop"},
+				{quote: "I wrap pieces of my shit in hershey wrappings then send them off to children in my van at playgrounds.", person: "- Lime"},
+				{quote: "Well if you want to toss my salad you need the right dressing", person: "- Sexy Steve"},
+				{quote: "The directions weren't clear enough. I ended up naked in an alley with a wig on.", person: "- Collapsed Anus"},
+				{quote: "If I can penetrate Gordan through an HEV suit, imagine what I can do to your fleshy, exposed meathole.", person: "Dr. Freeman's Vibrator"},
+				{quote: "I tried to pull a 'fridge' on Dry Bones - He pulled a colon out of my ass", person: "- Deluvas"},
+				{quote: "Do you like it when i nibble your feet jad?", person: "- Captian. Simon Bogsius"},
+				{quote: "that1guy (kidtoe) said he don't have other accounts and how to get second 'chance'?, person: "- TheHaloArray"},
+
+
+			];
+	
+			window.onload = function()
+			{
+				alternateQuote()
+				setTimeout(alternateQuote, 4200);
+			}
+
+			function alternateQuote()
+			{
+				var index = Math.floor(Math.random() * quoteList.length)
+				
+				var quoteText = document.getElementById("quote");
+				var quotePerson = document.getElementById("person");
+
+				quoteText.innerHTML = quoteList[index].quote;
+				quotePerson.innerHTML = quoteList[index].person;
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="center">
+			<center>
+			<span style="font-size:22px;color:#B40404;text-decoration:underline;">
+			Deathlegends</span><br>
+
+			You're on your way to:<br>Zombie Outbreak<br>
+			
+			<span style="font-size:18px;color:#B40404;text-decoration:underline;">
+			News:</span><br>
+			Update 147 is now live!<br>
+			Published: 1/10/2016<br>
+			
+			<img src="http://i872.photobucket.com/albums/ab288/warbasher/dl_red_zpse0db40b5.png"><br>
+			
+			"<span id="quote" style="font-size:17px;font-style:italic;color:#B40404;">
+			</span>  "<br>
+
+			<span id="person">
+			</span>
+			</center>
+		</div>
+	</body>
+</html>
