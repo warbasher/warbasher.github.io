@@ -5,7 +5,7 @@
 cfg = {
   payPal: {
     endpoint: 'https://www.paypal.com/cgi-bin/webscr',
-    business: 'pirey10@gmail.com'
+    business: 'email@gmail.com'
   }
 }
 
