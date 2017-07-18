@@ -2,21 +2,14 @@
 <html>
 	<head>
 		<style type="text/css">
-			body
-			{
-				background-image: url('https://photos-3.dropbox.com/t/2/AAB3V62PF5WN7SAOKDxJZUp2vKDqJv3_TSU7ouH-nND5Ow/12/99005071/jpeg/32x32/1/_/1/2/bgimage.bmp/EP244kwYnwQgAigC/8OkCTNCQJxSiyLqY0Q3UhulQl4Esi5X1719W3HtyHeI?size=2048x1536&size_mode=3');
-			}
-
-			body
-			{
+			body {
+				background: url('https://raw.githubusercontent.com/warbasher/warbasher.github.io/master/loadingurl/bgimage.bmp') #383635; /* fallback color */
 				font-family:tahoma;
 				font-size:17px;
 				color:white;
-				font-weight:bold
+				font-weight:bold	
 			}
-
-			center
-			{
+			center {
 				width:446px;
 				height:640px;
 				position:absolute;
@@ -25,12 +18,80 @@
 				margin-left:-223px;
 				margin-top:-320px;
 			}
-			
+			.picture {
+				margin: 10px 0px;
+				display: block; /* make it start on a new line */
+			}	
+			.title {
+				font-size:22px;
+				color:#0196f0;
+				text-decoration:underline;
+				margin: 0px 0px 5px 0px; /* add some bottom margin */
+			}
+			.subtitle {
+				font-size:18px;
+				color:#0196f0;
+				text-decoration:underline;
+				margin: 5px 0px 5px 0px; /* add some top/bottom margin */
+			}
+			.quote {
+				font-size:17px;
+				font-style:italic;
+				color:#0196f0;
+				margin-bottom: 5px;
+			}
+			.quote:before {
+				content: open-quote;
+			}
+			.quote:after {	/* css tricks to add quotes around div */
+				padding-left: 5px;
+				content: close-quote;
+			}
+			.quote:before, .quote:after {
+				font-style: normal;
+				color: white;
+			}
+			.author:before {
+				content: '-';
+				padding-right: 5px;
+			}
 		</style>
 		
 		<script type= "text/javascript">
-			var quoteList = [
+			window.onload = function() {
+				initializeQuotes(quotes);
+			}
 
+			function initializeQuotes(quotes) {
+				var shuffledQuotes = shuffleArray(quotes);
+				var index = 0;
+
+				var func = function() {
+
+					if (index == shuffledQuotes.length) {
+						shuffledQuotes = shuffleArray(quotes);
+						index = 0;
+					}
+					
+					var randomQuote = shuffledQuotes[index];
+
+					document.querySelector(".quote").innerText = randomQuote.quote;
+					document.querySelector(".author").innerText = randomQuote.person;
+						
+					index++;
+					setTimeout(func, 3000 + (randomQuote.quote.length * 25))
+				}
+
+				func();
+			}
+
+			function shuffleArray( array ) {
+				return array.sort( function( a, b ) {
+					return Math.floor( Math.random() * 2 ) - 1; // random(-1,0,1) 
+				})
+			}			
+
+			var quotes = [
 				/*
 				{quote: "I think warbasher changed my steam name again", person: "VOSGRATH, WRECKER OF POO HOLES"},
 				{quote: "You're are forgetting I was a professional twice over; an analyst and a therapist. The worlds first analrapist!", person: "Tobias Funke"},
@@ -55,7 +116,6 @@
 				{quote: "WHAT THE FUCK IS THAT HIGH PITCHED SOUND THAT FUCMING MAKES ME MADD", person: "- noob"},
 				{quote: "What level do you have to be to get Silver Account?", person: "- Leland"},
 				{quote: "I'm gonna shove a fucking rod up your ass, but hand craft it perfectly, so it's not too big and not too small. Just right. Just how you'd like it, you piece of shit.", person: "Warbasher"},*/
-
 				{quote: "i had a daydream i was server owner", person: "Seargent Muffin"},
 				{quote: "this server is gay its horrible go play zombie master or zps", person: "{SoM} Hazzard"},
 				{quote: "you stupid gay faggoty moron stop", person: "patonso"},
@@ -107,29 +167,10 @@
 				{quote: "my f2 is a gay advert for a darkrp server", person: "toxicity"},
 				{quote: "if you don't like raping lolis on the way to the bathroom you're a betamale", person: "TIMMEH"},
 				{quote: "Your title card set Sacrenex The Blue Shadow (597)'s title to: father stretch my anus part 1", person: "White Power"},
-				{quote: "(Playing zs_dl_sunday_v2 on 'Project Anon') this isn't a DL clone, we have intelligent bots not NPCs", person: "Damien"},
-				{quote: "(Playing zs_dl_sunday_v2 on 'Project Anon') this isn't a DL clone, we have intelligent bots not NPCs", person: "Damien"},
-				{quote: "(Playing zs_dl_sunday_v2 on 'Project Anon') this isn't a DL clone, we have intelligent bots not NPCs", person: "Damien"},
-				
-				
-			];
 	
-			window.onload = function()
-			{
-				alternateQuote()
-				setInterval(alternateQuote, 4200);
-			}
-
-			function alternateQuote()
-			{
-				var index = Math.floor(Math.random() * quoteList.length)
-				
-				var quoteText = document.getElementById("quote");
-				var quotePerson = document.getElementById("person");
-
-				quoteText.innerHTML = quoteList[index].quote;
-				quotePerson.innerHTML = "- " + quoteList[index].person;
-			}
+				{quote: "(Playing zs_dl_sunday_v2 on 'Project Anon') this isn't a DL clone, we have intelligent bots not NPCs", person: "Damien"},
+				{quote: "(Playing zs_dl_sunday_v2 on 'Project Anon') this isn't a DL clone, we have intelligent bots not NPCs", person: "Damien"},
+			];
 		</script>
 	</head>
 
@@ -138,23 +179,16 @@
 	<body>
 		<div class="center">
 			<center>
-			
-			<span style="font-size:22px;color:#0196f0;text-decoration:underline;">
-			Deathlegends</span><br>
+				<h1 class="title">Deathlegends</h1>
+				<div>You're on your way to:</div>
+				<div>Zombie Outbreak</div>
+				
+				<h3 class="subtitle">News:</h3>
+				<div>Update 149 is coming soon!</div>  <!-- divs automatically start on the next line -->
 
-			You're on your way to:<br>Zombie Outbreak<br>
-			
-			<span style="font-size:18px;color:#0196f0;text-decoration:underline;">
-			News:</span><br>
-			Update 149 is coming soon!<br>
-			
-			<img src="https://github.com/warbasher/warbasher.github.io/blob/master/loadingurl/dl_logo_v3_small.png?raw=true"><br>
-			
-			"<span id="quote" style="font-size:17px;font-style:italic;color:#0196f0;">
-			</span>  "<br>
-
-			<span id="person">
-			</span>
+				<img class="picture" src="https://raw.githubusercontent.com/warbasher/warbasher.github.io/master/loadingurl/dl_logo_v3_small.png"/> <!-- use raw.githubusercontent = faster loading -->
+				<div class="quote">Best quote ever</div> <!-- placeholder -->
+				<div class="author">Nobody 2017</div>
 			</center>
 		</div>
 	</body>
