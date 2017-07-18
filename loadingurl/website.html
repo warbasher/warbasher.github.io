@@ -67,34 +67,35 @@
 				var index = 0;
 
 				var func = function() {
-
 					if (index == shuffledQuotes.length) {
 						shuffledQuotes = shuffleArray(quotes);
 						index = 0;
 					}
 					
 					console.log(index)
-					
-					
 					var randomQuote = shuffledQuotes[index];
-					
 					console.log(randomQuote.quote)
 
 					document.querySelector(".quote").innerText = randomQuote.quote;
 					document.querySelector(".author").innerText = randomQuote.person;
 						
 					index++;
-					setTimeout(func, 3000 + (randomQuote.quote.length * 25))
+					setTimeout(func, 3000 + (randomQuote.quote.length * 18))
+					/*setTimeout(func, 3000 + (randomQuote.quote.length * 25))*/
 				}
 
 				func();
 			}
 
-			function shuffleArray( array ) {
-				return array.sort( function( a, b ) {
-					return Math.floor( Math.random() * 2 ) - 1; // random(-1,0,1) 
-				})
-			}			
+			function shuffleArray(array) {
+				for (var i = array.length - 1; i > 0; i--) {
+					var j = Math.floor(Math.random() * (i + 1));
+					var temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
+				}
+				return array;
+			}	
 
 			var quotes = [
 				/*
