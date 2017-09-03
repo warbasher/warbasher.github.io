@@ -7,20 +7,20 @@
 				font-family:tahoma;
 				font-size:17px;
 				color:white;
-				font-weight:bold	
+				font-weight:bold;
+				display: flex; /* use flexfox for centering */
+				align-items: center;
+				justify-content: center;
 			}
-			center {
-				width:446px;
-				height:640px;
-				position:absolute;
-				left:50%;
-				top:45%;
-				margin-left:-223px;
-				margin-top:-320px;
+			body, html {
+				height: 100%;
+			}
+			.container {
+				text-align: center;
+				margin-bottom: 55px; /* push the flexfox a lil higher */
 			}
 			.picture {
 				margin: 10px 0px;
-				display: block; /* make it start on a new line */
 			}	
 			.title {
 				font-size:22px;
@@ -183,20 +183,18 @@
 	<!-- #B40404 old color -->
 
 	<body>
-		<div class="center">
-			<center>
-				<h1 class="title">Deathlegends</h1>
-				<div>You're on your way to:</div>
-				<div>Zombie Outbreak</div>
-				
-				<h3 class="subtitle">News:</h3>
-				<div>Update 149 is now live!</div>  <!-- divs automatically start on the next line -->
-				Published: 8/31/2017<br>
+		<div class="container">
+			<h1 class="title">Deathlegends</h1>
+			<div>You're on your way to:</div>
+			<div>Zombie Outbreak</div>
+			
+			<h3 class="subtitle">News:</h3>
+			<div>Update 149 is now live!</div>  <!-- divs automatically start on the next line -->
+			Published: 8/31/2017<br>
 
-				<img class="picture" src="https://raw.githubusercontent.com/warbasher/warbasher.github.io/master/loadingurl/dl_logo_v3_small.png"/> <!-- use raw.githubusercontent = faster loading -->
-				<div class="quote">Best quote ever</div> <!-- placeholder -->
-				<div class="author">Nobody 2017</div>
-			</center>
+			<img class="picture" src="https://raw.githubusercontent.com/warbasher/warbasher.github.io/master/loadingurl/fc07333d494c4412a49344361f1af7eb.png"/> <!-- use raw.githubusercontent = faster loading -->
+			<div class="quote">like when you're watching ur fav scene and the dude pulls out and her butthole is like the size of a dinner plate</div> <!-- placeholder -->
+			<div class="author">Nobody 2017</div>
 		</div>
 	</body>
 </html>
