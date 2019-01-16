@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
 		<style type="text/css">
 			body {
 				background: url('https://raw.githubusercontent.com/warbasher/warbasher.github.io/master/loadingurl/bgimage.bmp') #383635; /* fallback color */
@@ -23,22 +22,21 @@
 				font-size:22px;
 				/*color:#0196f0;*/
 				/*color:#3cff7d;*/
-				color:#ff7800;
+				/*color:#ff7800; orange halloween color*/
+				color:#8cfdff;
 				text-decoration:underline;
 				margin: 0px 0px 5px 0px; /* add some bottom margin */
 			}
 			.subtitle {
 				font-size:18px;
-				/*color:#0196f0;*/
-				color:#ff7800;
+				color:#8cfdff;
 				text-decoration:underline;
 				margin: 5px 0px 5px 0px; /* add some top/bottom margin */
 			}
 			.quote {
 				font-size:17px;
 				font-style:italic;
-				/*color:#0196f0;*/
-				color:#ff7800;
+				color:#8cfdff;
 				margin-bottom: 5px;
 			}
 			.quote:before {
@@ -53,6 +51,29 @@
 				color: white;
 			}
 			.author:before {
+				content: '-';
+				padding-right: 5px;
+			}
+
+			/*Novak quote code*/
+			.novakQuote {
+				font-size:17px;
+				font-style:italic;
+				color:#8cfdff;
+				margin-bottom: 5px;
+			}
+			.novakQuote:before {
+				content: open-quote;
+			}
+			.novakQuote:after {	/* css tricks to add quotes around div */
+				padding-left: 5px;
+				content: close-quote;
+			}
+			.novakQuote:before, .novakQuote:after {
+				font-style: normal;
+				color: white;
+			}
+			.novakAuthor {
 				content: '-';
 				padding-right: 5px;
 			}
@@ -86,6 +107,27 @@
 				}
 
 				func();
+
+				/*Novak quote code*/
+				var shuffledNovakQuotes = shuffleArray(novakQuotes);
+				var novakIndex = 0;
+				var novakFunc = function() {
+					if (index == shuffledNovakQuotes.length) {
+						shuffledNovakQuotes = shuffleArray(novakQuotes);
+						novakIndex = 0;
+					}
+					
+					console.log(novakIndex)
+					var randomQuote = shuffledNovakQuotes[novakIndex].quote;
+					console.log(randomQuote)
+
+					document.querySelector(".novakQuote").innerText = randomQuote;
+						
+					novakIndex++;
+					setTimeout(novakFunc, 3000 + (randomQuote.length * 18))
+				}
+				
+				novakFunc();
 			}
 
 			function shuffleArray(array) {
@@ -205,6 +247,60 @@
 				{quote: "just because you're a furry doesn't mean you have to act like a 12 year old RP femboy", person: "mis"},
 				{quote: "who cares about gender confusing, im confused why you're not riding my penis yet", person: "chatoff"},
 				{quote: "come back again tomorrow when i attempt to save this dying server", person: "Nibster"},
+				{quote: "O dear I feel so depressed... wise up.. and just for the record I am mentally ill so there's no need to be evil about it some of us don't have a mentally stable brain but you wouldn't know that because your so interested in giving of about something no-one cares about", person: "OnlyMAD"},
+				{quote: "Just woke up at 4am too a threatning messages about getting punched and now I'm so mad that I can't fucking SLEEP!", person: "OnlyMAD"},
+			
+				{quote: "deathlegends will meet the same fate, all warbasher did was prolong his demise", person: "neebos (4th life dead)"},
+				{quote: "Servers will be terminated tomorrow morning, I no longer have the determination to maintain 4th Life. take it, I don't want it", person: "neebos (4th life LOL CROAK)"},
+				{quote: "I let it slip to him that I don’t like warbasher at all. His facts are all wrong. I didn’t mention that 4th Life is bigger than death legends. It’s hard to say I’m a wanna be ... when I surpassed them. In a month... of existing", person: "nebos"},
+
+				{quote: "after watching anime for so long i can fluently say arigato gozaimasu meaning i am now bilingual. what have you done with your life lmfao", person: "sunny"},
+				{quote: "wheres jad i wanna nibble his feet", person: "Envylian"},
+				{quote: "i would suck the runny shits of all the admins out of their assholes combined for silver", person: "weebster"},
+				{quote: "wanna know what a french kiss is like? kiss that sewer monster", person: "darkshine"},
+				{quote: "I just cut my penis off with an angle grinder LOL!", person: "confuciusconficus"},
+				{quote: "I want pubes", person: "SpongeBob SquarePants (MAD)"},
+				{quote: "but really, would be fuckin awesome to be a sex demon\nget people to bend to your will just cause youre hot", person: "DickBallzy"},
+				{quote: "dude im basically standing up and i can fucking smell my balls\nwhat is this shit", person: "Russian Loli"},
+				{quote: " if i cant fuck you dont talk to me\ni would never give a nigga with a naruto avatar anything\nfuck you guys i have a derrick lewis profile picture with his pants off", person: "My balls was hot"},
+				{quote: "ok new rule on dl\nthere need to be two caders on every map\nif not i z main", person: "chase instinct (human pitbull)"},
+				{quote: "you not even black cracker jack using the big N here\nyou dumb ass hell", person: "daobu7485"},
+			];
+			
+			var novakQuotes = [
+				{quote: "I feel more with it when under the influence of 2-methyl-2-butanol"},
+				{quote: "i dont think this stuff has the same kidney cleaning power as beer though...."},
+				{quote: "if you wann be a tranny, fine, but if your gonna hit on me ill be pissed"},
+				{quote: "i hate being an addict. I can never find satisfaction. except from JEsus. I have a kit"},
+				{quote: "welll he may speak through me, but I am not God. He orcestrates awsome stuff"},
+				{quote: "im not fucking sround with OD yp djit tonight sntyway, juest pot  a lil 3fbpm Flubromazoam and 2m2b"},
+				{quote: "merry christmas, your not on phencyclidine so  youll get fucked up and die"},
+				{quote: "goood thing i joined a fraternity 6 years ago, or id be a fucknigga right now haha"},
+				{quote: "drink 2 pints of my blood and catch a buzz, drink it all and get smashed"},
+				{quote: "i know, but I have only experienced the perversion with my ex's, and they disnt talk about death and fucked shit"},
+				{quote: "ill just rape you if u do not comply, with a strapon, my peter dont like man ass"},
+				{quote: "burps are the worst, all i smell is gasoline-like"},
+				{quote: "i dont know whos dumber the zombies or me"},
+				{quote: "im rolling a blunt faggot"},
+				{quote: "well, i odered some fluntrazolam, and thught .1ml at 1mg/ml would be safe. straightstupor"},
+				{quote: "*DEAD* what dd i mis inmy 3 day hospitalstay?"},
+				{quote: "dude Ijust got fat shipment of N-ethylhexadrone,etizolam, and diclazepam and watched it all throw away"},
+				{quote: "*DEAD* my asshole ha been gaped"},
+				{quote: "i dont even do drugs bigman wtf"},
+				{quote: "scome into your fuck your daughter in the mouth, what"},
+				{quote: "strap on a jimmy cause i dont want a disease"},
+				{quote: "who ever came up with snitches get stiches didnt realize you cant stich up a neck stump"},
+				{quote: "u better get that checked before blood flow is cutoff, then ull lose a nut"},
+				{quote: "wheres all the thots at? I rarely seem to get them any more"},
+				{quote: "oh dear, the fat ones always blow up ones phone....."},
+				{quote: "of course, 2 new tinder matches, but they weigh at least 50lbs more than me :("},
+				{quote: "gamer grills at least cook me some fucking food after the fuck"},
+				{quote: "well at least the ladies know im hung"},
+				{quote: "oh i hope this gal isnt dirty tomorrow\noly caught me one stf from my ex"},
+				{quote: "if i close my eyes i feel like i can let go\nthats why cvb i gotta keep plating\n*palying\noh fuck"},
+				{quote: "im not buying an expensive jizzing strap on nigga\nu getting cold plastic"},
+				{quote: "ive been stabbed and beat\nim a glutton for pain"},
+				{quote: "thoese dude from Cry of fear r fucking scarhy\nlunatics\nonly game to ever scare me\nLIKE A CRACK RUSH ITS so scary"},	
 			];
 		</script>
 	</head>
@@ -218,12 +314,16 @@
 			<div>Zombie Outbreak</div>
 			
 			<h3 class="subtitle">News:</h3>
-			<div>Update 153 is now live!</div>  <!-- divs automatically start on the next line -->
-			Published: 10/31/2018<br>
+			<div>Update 154 is coming.. soon</div>  <!-- divs automatically start on the next line -->
+			<!-- Published: 10/31/2018<br> -->
 
 			<img class="picture" src="https://raw.githubusercontent.com/warbasher/warbasher.github.io/master/loadingurl/update.png"/> <!-- use raw.githubusercontent = faster loading -->
 			<div class="quote">like when you're watching ur fav scene and the dude pulls out and her butthole is like the size of a dinner plate</div> <!-- placeholder -->
 			<div class="author">Nobody 2017</div>
+
+			<br><br>
+			<div class="novakQuote"></div>
+			<div class="novakAuthor">- Novak.d420</div>
 		</div>
 	</body>
 </html>
