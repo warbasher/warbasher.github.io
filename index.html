@@ -1,0 +1,505 @@
+<html>
+	<head>
+		<style type="text/css">
+			body {
+				background: url('https://raw.githubusercontent.com/warbasher/warbasher.github.io/master/loadingurl/bgimage.bmp') #383635; /* fallback color */
+				font-family:tahoma;
+				font-size:17px;
+				color:white;
+				font-weight:bold;
+				display: flex; /* use flexfox for centering */
+				justify-content: center;
+			}
+			.container {
+				text-align: center;
+				margin-top: 80px; /* push the flexfox a lil higher */
+			}
+			.picture {
+				margin: 10px 0px;
+			}	
+			.title {
+				font-size:22px;
+				/*color:#ff7800; orange halloween color*/
+				/*color:#e60000;*/
+				color:#e60000;
+				text-decoration:underline;
+				margin: 0px 0px 5px 0px; /* add some bottom margin */
+			}
+			.subtitle {
+				font-size:18px;
+				color:#e60000;
+				text-decoration:underline;
+				margin: 5px 0px 5px 0px; /* add some top/bottom margin */
+			}
+			.quote {
+				font-size:17px;
+				font-style:italic;
+				color:#e60000;
+				margin-bottom: 5px;
+			}
+			.quote:before {
+				content: open-quote;
+			}
+			.quote:after {	/* css tricks to add quotes around div */
+				padding-left: 5px;
+				content: close-quote;
+			}
+			.quote:before, .quote:after {
+				font-style: normal;
+				color: white;
+			}
+			.author:before {
+				content: '-';
+				padding-right: 5px;
+			}
+
+			/*Novak quote code*/
+			/*.novakQuote {
+				font-size:17px;
+				font-style:italic;
+				color:#e60000;
+				margin-bottom: 5px;
+			}
+			.novakQuote:before {
+				content: open-quote;
+			}
+			.novakQuote:after {	/* css tricks to add quotes around div */
+				padding-left: 5px;
+				content: close-quote;
+			}
+			.novakQuote:before, .novakQuote:after {
+				font-style: normal;
+				color: white;
+			}
+			.novakAuthor {
+				content: '-';
+				padding-right: 5px;
+			}*/
+			
+		</style>
+		
+		<script type= "text/javascript">
+			window.onload = function() {
+				initializeQuotes(quotes);
+				loadImage();
+			}
+
+			function initializeQuotes(quotes) {
+				var shuffledQuotes = shuffleArray(quotes);
+				var index = 0;
+
+				var func = function() {
+					if (index == shuffledQuotes.length) {
+						shuffledQuotes = shuffleArray(quotes);
+						index = 0;
+					}
+					
+					console.log(index)
+					var randomQuote = shuffledQuotes[index];
+					console.log(randomQuote.quote)
+
+					document.querySelector(".quote").innerText = randomQuote.quote;
+					document.querySelector(".author").innerText = randomQuote.person;
+						
+					index++;
+					setTimeout(func, 3000 + (randomQuote.quote.length * 18))
+				}
+
+				func();
+
+				/*Novak quote code*/
+				var shuffledNovakQuotes = shuffleArray(novakQuotes);
+				var novakIndex = 0;
+				var novakFunc = function() {
+					if (novakIndex == shuffledNovakQuotes.length) {
+						shuffledNovakQuotes = shuffleArray(novakQuotes);
+						novakIndex = 0;
+					}
+					
+					console.log(novakIndex)
+					var randomQuote = shuffledNovakQuotes[novakIndex].quote;
+					console.log(randomQuote)
+
+					document.querySelector(".novakQuote").innerText = randomQuote;
+						
+					novakIndex++;
+					setTimeout(novakFunc, 3000 + (randomQuote.length * 18))
+				}
+				
+				//novakFunc();
+			}
+
+			function shuffleArray(array) {
+				for (var i = array.length - 1; i > 0; i--) {
+					var j = Math.floor(Math.random() * (i + 1));
+					var temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
+				}
+				return array;
+			}
+			
+			function loadImage() {
+				var shuffledImages = shuffleArray(loadingImgs);
+				var imageIndex = 0;
+				var imageFunc = function() {
+					if (imageIndex == shuffledImages.length) {
+						shuffledImages = shuffleArray(loadingImgs);
+						imageIndex = 0;
+					}
+
+					var url = shuffledImages[imageIndex].url;
+					document.querySelector(".picture").src = url;
+						
+					imageIndex++;
+				}
+				
+				imageFunc();
+			}
+
+			var quotes = [
+				/*
+				{quote: "I think warbasher changed my steam name again", person: "VOSGRATH, WRECKER OF POO HOLES"},
+				{quote: "You're are forgetting I was a professional twice over; an analyst and a therapist. The worlds first analrapist!", person: "Tobias Funke"},
+				{quote: "YOU FUCK FUCK FUCK YOU", person: "- guymmm"}
+				{quote: "SHUT UP LITTLE JEWFUCK", person: "T51-BROTHERHOOD POWER ARMOR"},
+				{quote: "i kill make you hotdog", person: "- _99_-[T.A.A.G]-[TZH][P]"},
+				{quote: "As a black-identifying Asian, male-identifying female transman, gender-fluid polyromantic, I demand that you apologize for your insensitivity, and refer to me by the proper pronoun of ey. You don't understand what it is like to sexually identify as a stoplight.", person: "2016"},
+				{quote: "If I can penetrate Gordan through an HEV suit, imagine what I can do to your fleshy, exposed meathole.", person: "Dr. Freeman's Vibrator"},
+				{quote: "zs survival tips from a pro : HumansBuild bareicadd. Shot zombies until they died Zombees';.Hold don butun to kill people", person: ""},
+				{quote: "hey is that 1 free game real or fake/virs", person: "- youareit(DL){C???}(E.s.t)"},
+				{quote: "NATHINE GIVE ME YR MAGNEM I KILLED ME", person: "- warrior of war ! [sp]"},
+				{quote: "HI, i have been muted for 5000 mins. i would love to be unmuted so i can talk to other players", person: "- ReGgae MasTeR iN W33D"},
+				{quote: "I just got banned for cading, SOMEONE PLEASE TELL ME WHAT CADING IS", person: "- TurtlesIV"},
+				{quote: "Just perma-banned more brony/pony/homosexual/whatever things. Don't come back", person: "- Warbasher"},
+				{quote: "Btw, I got Cataclysm Yesterday... so OWNED", person: "- Dr. Lime"},
+				{quote: "LOL I let that black guy get hit and stole his kill at the same time", person: "- Nathan"},
+				{quote: "I went over Mr Green just to check something; They added NINE FUCKING 'Stop it, Slender' servers and they're all full WTF????", person: "- Catbox"},
+				{quote: "That faggot isn't worth a nickel", person: "- David"},
+				{quote: "i am STRONGER", person: "- Nathan"},
+				{quote: "why are you sick fuckers killing yourself with every func_door you get, does it get you hard or something?", person: "- Big Daddy"},
+				{quote: "HOW DO I CRUCH?", person: "- drbdigitizing"},
+				{quote: "WHAT THE FUCK IS THAT HIGH PITCHED SOUND THAT FUCMING MAKES ME MADD", person: "- noob"},
+				{quote: "What level do you have to be to get Silver Account?", person: "- Leland"},
+				{quote: "Obama is a time-traveling slave who has come to destroy the white man's future", person: "(not) Warbasher"},
+				{quote: "I'm gonna shove a fucking rod up your ass, but hand craft it perfectly, so it's not too big and not too small. Just right. Just how you'd like it, you piece of shit.", person: "Warbasher"},
+				{quote: "GOD FUCKING FASTNIGGER HEADCRABS MASHING MOUSE1 FUCK", person: "WHITEMEN HAVE TAKEN THE HOMELAN"},*/
+				{quote: "i had a daydream i was server owner", person: "Seargent Muffin"},
+				{quote: "this server is gay its horrible go play zombie master or zps", person: "{SoM} Hazzard"},
+				{quote: "you stupid gay faggoty moron stop", person: "patonso"},
+				{quote: "did you kno warbasher is my dadda", person: "Rpgraff12[DL]"},
+				{quote: "IM MORPHINF INTO SOMETHING InHuMaN", person: "one eyed zeus Ozzy Osbourne pwn"},
+				{quote: "how do i put erzenl crets??", person: "Deluvas"},
+				{quote: "still ignoreing..", person: "Raiden [NG]"},
+				{quote: "hey, im gonna take down dl for a bit", person: "TehTinehKitteh™"},
+				{quote: "dislike me most likely through i dont now y people dont liek me :(", person: "AlphaRaIdErSfAn64"},
+				{quote: "man my keyboard is full of my hair", person: ">> EST-LG << Brenz[DLm]"},
+				{quote: "We need an 'Expert' server. Its not fun to play with the general rabble where we need to take almost all of our time to explane how the hell to press Z or bind +zoom.", person: "IjoreanGrey"},
+				{quote: "Don't struggle honey.", person: "Eli Vance"},
+				{quote: "dont call me a kid", person: "jwcolson"},
+				{quote: "We have our own proofs of stolen codes and stolen maps that have been RENAMED", person: "+[SP]+ Ninjamcwaffles"},
+				{quote: "i beat the most kills in one game 695", person: "AlphaRaIdErSfAn64"}, 
+				{quote: "leander can u mute the person that muted me", person: "Hobo"},
+				{quote: "At least I'm staying quiet xD I'm only 12.", person: "lobsterinabucket"},
+				{quote: "WELL I'M THE FUCKING DICKSLICER OF THE NIGHT BEND OVER OR BE BENT IN HALF", person: "A deranged Warbasher"},
+				{quote: "I really dont see ehy reason to live anymoar withut the particals", person: "Convicted Partical rapist (Life's Regret)"},
+				{quote: "i get clock radio. he cannot afford. great success.", person: "lunchboX"},
+				{quote: "TRUEREBEL GET AWAY FROM THE BARRICADE THE AI CAN KILL YOU", person: "jblaffert"},
+				{quote: "why did i die that many times holy shit my redeem delay is 5 minutes", person: "SpadedAces"},
+				{quote: "while you're waiting 30 minutes to download our unique content from workshop, feel free to join our vanilla white power RP.", person: "Nathan"},
+				{quote: "CLIENT-SIDE MUTE! IS YOUR EGO TOO STRONG FOR THAT? THAT IS WHAT CLIENT-SIDE MUTE IS FOR", person: "Dingo"},
+				{quote: "I have a dream that my four little props will one day live in a barricade where they will not be judged by the model they use, but by the content of their quality.", person: "Martin Luther Blueshelf"},
+				{quote: "You sound like some horny, 9 year old drug dealer on RP that just got admin and is drunk off their own power", person: "RP Combat Philosopher"},
+				{quote: "go back to france ya damn communist", person: "Braindawg"},
+				{quote: "is barwasher autistic", person: "Pindrop"},
+				//{quote: "I wrap pieces of my shit in hershey wrappings then send them off to children in my van at playgrounds.", person: "Lime"},
+				{quote: "Well if you want to toss my salad you need the right dressing", person: "Sexy Steve"},
+				{quote: "The directions weren't clear enough. I ended up naked in an alley with a wig on.", person: "Collapsed Anus"},
+				{quote: "I tried to pull a 'fridge' on Dry Bones He pulled a colon out of my ass", person: "Deluvas"},
+				{quote: "Do you like it when i nibble your feet jad?", person: "Captian. Simon Bogsius"},
+				{quote: "that1guy (kidtoe) said he don't have other accounts and how to get second 'chance'?", person: "TheHaloArray"},
+				{quote: "Everyone who is a zombie leave the server cuz these fuck sticks keep spawnin barriers.", person: "KaziKage"},
+				//{quote: "Please make me sushi and shove it up my ass", person: "Lime"},
+				{quote: "Have you guys heard of the porno Schindler's Fist", person: "Your grandfather"},
+				{quote: "holy shit noir with 27 players I wanted to play ZS not contemplate suicide", person: "Generic Faggot"},
+				{quote: "ive been in a combine war in vitnam", person: "nathonr"},
+				{quote: "FUCK YOU!!!!!!!!! TURN MY MIC BACK ON RIGHT NOW BEFORE I SKULL FUCK YOU!!!", person: "ThatKidMatt™"},
+				{quote: "WTF WHY WAS I LEFT BEHIND WHAT THE ACTUAL FUCK TELL SOMEONE THAT POEPLE ARE DOWN THERE AND KIILLING SOMBIES AND PLEASE BE A FU", person: "Chappiekid404 YT OREO"},
+				{quote: "I'm going to kill myself in real life!!!", person: "DoomDragon24"},
+				{quote: "the aliens pit them against one another in a giant extradimensional arena made of elephant shit", person: "Sirkittymen"},
+				{quote: "like when you're watching ur fav scene and the dude pulls out and her butthole is like the size of a dinner plate", person: "DoctorMiracle"},
+				{quote: "i only came to the server to be accepted for who i am", person: "Crystal Furry Wolf"},
+				{quote: "I bet you run like Naruto you faggot", person: "Brock Obama"},
+				{quote: "my f2 is a gay advert for a darkrp server", person: "toxicity"},
+				{quote: "if you don't like raping lolis on the way to the bathroom you're a betamale", person: "TIMMEH"},
+				{quote: "Your title card set Sacrenex The Blue Shadow (597)'s title to: father stretch my anus part 1", person: "White Power"},
+				{quote: "(Playing on 'Project Anon') this isn't a DL clone, we have intelligent bots not NPCs", person: "Damien"},
+				{quote: "Yeah ban me ffs. I dont care anymore. Ill go play nox or some shit.", person: "Sharper Scarf"},
+				{quote: "IF U DONT STOP WITH THE BED I WILL RAPE YOUR FUCKING FAMILY", person: "Random_jason"},
+				{quote: "not sure why but legendary bosses give me a massive erection", person: "Shiloh"},
+				{quote: "Because I'd like to gargle your cock while smoking a few roaches my dude", person: "Gimmewaffles"},
+				{quote: "Dad lemme eat dat ass", person: "Kristisn Windrunner"},
+				{quote: "my asshole is wide open for you Sacrenex(597)", person: "the rampaging billy goat"},
+				{quote: "OH FUCK I HAVE WORK", person: "Papa Harold"},
+				{quote: "imma shoot you in the face and jerk off on your corpse", person: "Kneezer"},
+				{quote: "Im getting my clan and we are gonna troll <3", person: "KS > Snipez"},
+				{quote: "So sorry man, I was just having a rough day and decided to be autistic as shit", person: "Stürmisch"},
+				{quote: "uFUckingdumbfuck son of a asshole", person: "computergeec"},
+				{quote: "i had to suck and fuck my way out of a prison in tijuana", person: "Cosmoline"},
+				{quote: "WOW, I KNOW IM A MAN", person: "Jessica?"},
+				{quote: "do you ever just go on google maps to stare at a random house and wonder if they can feel your violent sexual energy?", person: "Hornyboi"},
+				{quote: "Look Lusa, I have to vomit like, every like 10 minutes, so that's why I'm shit basically", person: "Lemmy"},
+				{quote: "when you cook a meal you arent a chef so why is it that when a guy sucks one dick hes gay?", person: "LoliCreampie"},
+				{quote: "marrow looks like a crusty cum rag that grew limbs", person: "Random_Jason"},
+				{quote: "If you don't like me tell me to my face why. Don't be a little bitch and silently delete like a pussy. Be a man and tell me to my face lol. Cowards. I would love to talk to your face(s) but you won't let me this isn't talking behind your back im telling you to be men and actually confront me like a man. Also if you decide to actually confront me do it 1 on 1. Not on a public place do it privately like it should be. You know who you all are now come out of your shell and confront me like a person should, one on one. If you decide to do the shit in a public place where there will be an unnecessary audience that's another move of cowardice. Hope the problems will be finally solved and will be handled like men and not doing some silent bullshit that has gone on too long.", person: "KillerElite (Sacrenex)"},
+				{quote: "If you don't like me tell me to my face why. Don't be a little bitch and silently delete like a pussy. Be a man and tell me to my face lol. Cowards. I would love to talk to your face(s) but you won't let me this isn't talking behind your back im telling you to be men and actually confront me like a man. Also if you decide to actually confront me do it 1 on 1. Not on a public place do it privately like it should be. You know who you all are now come out of your shell and confront me like a person should, one on one. If you decide to do the shit in a public place where there will be an unnecessary audience that's another move of cowardice. Hope the problems will be finally solved and will be handled like men and not doing some silent bullshit that has gone on too long.", person: "KillerElite (Sacrenex)"},
+				{quote: "EVERYONE KNOWS THE RULES, ADMINISTRATORS GET FIRST DIBS ON GAMER GIRLS", person: "cml4"},
+				{quote: "THE HANGING GARDENS OF CHASTE ARE IN PERIL", person: "chatoff"},
+				{quote: "I'd sell my computer for a grave because I care about the grave more than my pc", person: "Weegeee"},
+				{quote: "I NAILED THE STUPID ASS THING TO THE DESK BY MISTAKE AND WHEN I UNDID 1 NAIL THE WHOLE FUCKING THING TOOK OFF FOR SOME REAS", person: "Jad"},
+				{quote: "Also bi-polar so some days i feel like trapin niggas and other days i like pinning 5' girls to their floor", person: "Bliss"},
+				{quote: "I actually thought of this name in grade 8 when i got really high on cocaine", person: "Bliss"},
+				{quote: "im in 4th grade WHAT DO YOU EXPECT?!", person: "Manders"},
+				{quote: "shit now I crave cock.. thanks jad", person: "The Fancy Cat"},
+				{quote: "just because you're a furry doesn't mean you have to act like a 12 year old RP femboy", person: "mis"},
+				{quote: "who cares about gender confusing, im confused why you're not riding my penis yet", person: "chatoff"},
+				{quote: "come back again tomorrow when i attempt to save this dying server", person: "Nibster"},
+				{quote: "O dear I feel so depressed... wise up.. and just for the record I am mentally ill so there's no need to be evil about it some of us don't have a mentally stable brain but you wouldn't know that because your so interested in giving of about something no-one cares about", person: "OnlyMAD"},
+				{quote: "Just woke up at 4am too a threatning messages about getting punched and now I'm so mad that I can't fucking SLEEP!", person: "OnlyMAD"},
+			
+				{quote: "deathlegends will meet the same fate, all warbasher did was prolong his demise", person: "neebos (4th life dead)"},
+				{quote: "Servers will be terminated tomorrow morning, I no longer have the determination to maintain 4th Life. take it, I don't want it", person: "neebos (4th life LOL CROAK)"},
+				{quote: "I let it slip to him that I don’t like warbasher at all. His facts are all wrong. I didn’t mention that 4th Life is bigger than death legends. It’s hard to say I’m a wanna be ... when I surpassed them. In a month... of existing", person: "nebos"},
+
+				{quote: "after watching anime for so long i can fluently say arigato gozaimasu meaning i am now bilingual. what have you done with your life lmfao", person: "sunny"},
+				{quote: "wheres jad i wanna nibble his feet", person: "Envylian"},
+				{quote: "i would suck the runny shits of all the admins out of their assholes combined for silver", person: "weebster"},
+				{quote: "wanna know what a french kiss is like? kiss that sewer monster", person: "darkshine"},
+				{quote: "I just cut my penis off with an angle grinder LOL!", person: "confuciusconficus"},
+				{quote: "I want pubes", person: "SpongeBob SquarePants (MAD)"},
+				{quote: "but really, would be fuckin awesome to be a sex demon\nget people to bend to your will just cause youre hot", person: "DickBallzy"},
+				{quote: "dude im basically standing up and i can fucking smell my balls\nwhat is this shit", person: "Russian Loli"},
+				{quote: " if i cant fuck you dont talk to me\ni would never give a nigga with a naruto avatar anything\nfuck you guys i have a derrick lewis profile picture with his pants off", person: "My balls was hot"},
+				{quote: "ok new rule on dl\nthere need to be two caders on every map\nif not i z main", person: "chase instinct (human pitbull)"},
+				{quote: "you not even black cracker jack using the big N here\nyou dumb ass hell", person: "daobu7485"},
+				
+				{quote: "WHY DOES MY ANGER NOT MAKE ME STRONGER? CAN'T YOU SEEM IM THE PROTAGONIST?", person: "daobu7485"},
+				{quote: "i'm going to rip your guts through your asshole with my claws", person: "Jad"},
+				{quote: "/me clicks heels and performs a HimmlergruÃŸ ", person: "Kaiserschlacht"},
+				{quote: "whos peepee do i have to suck to see amphetamine's male side", person: "Radical Larry"},
+				{quote: "Good server, interesting ideas and use of NPC. But the top players are mostly toxic. Like admin. Thank you, it was interesting for you to play. I will not come again.", person: "Kitsune_Ranger{FootFetishLord}"},
+				{quote: "I fucking hate your title cards\nYou hear me asshole??\nFuck you and this server", person: "Ravana"},
+
+				{quote: "Thats one of the main reasons I play on fwkzt because toxicly zmaining is bannable there", person: "[FWKZT] Dirty Dan"},
+				{quote: "holy fuck i have a mosquito bite on my balls im fucking going to turn into hulk and smash my computer to bits\nthe devil has fucking punished me\nwith a bug bite on my dick", person: "TNT Mc.Creeper"},
+				{quote: "I fucking hate your title cards\nYou hear me asshole??\nFuck you and this server", person: ""},
+				{quote: "you ever sneeze so hard you have a flashback", person: "Danteclone2"},
+				{quote: "HOW DO PEOPLE KEEP FINDING JELLY AND SHIT BUT ALL I FIND IS RANCID MEAT", person: "ExoticMaps"},
+				{quote: "why do i have a cringe meeter and why can i not resoawn", person: "cporch623"},
+				
+				{quote: "day three ive been locked in my room i barracaded it with all of my living neccesitys\ni have drinken the bathroom water to survive\ni love how you can turn any game into a roleplay", person: "cboggs03"},
+				{quote: "OW WHAT THE FUCK\nIM FRIENDLY\nplease dont shoot\ntraitor what the fuck\nfucking read", person: "my husband is a woman"},
+				{quote: "ROMAN STOP\nYOU FUCKING BITCH\nIM FRIENDLY\nYOU ARE A DICK", person: "my husband is a woman"},
+				{quote: "I KNEW IT WOULD BE SMELLY IN HERE WHEN I SAW TURTLE", person: "Roly XIII"},
+				
+				{quote: "WHAT PART OF DONT SHOOT DO YOU NOT UNDERSTAND\nguys if you see a zombie not moving its me and dont shoot", person: "gfflfootball2"},
+				{quote: "lol i lost 2 of my robloxs accounts for rascism", person: "insomniac"},
+				{quote: "HELP\nITS COMING FOR MY SKIN", person: "cboggs03"},
+				{quote: "it do be the best farming map, but man these z mains finna tounge me arse", person: "Fidus Anguis"},
+				{quote: "come over here so i can smash those small bird balls of yours with my electro hammer ;)", person: "Waffles Da Icecweam Dwagoness"},
+				{quote: "BYE YOUR GAME SUCKS", person: "gfflfootball2"},
+				
+				{quote: "the coolest part about sunrust is how you have to turn off voice and mic chat for it to be tolerable", person: "Elliot"},
+				{quote: "LMAO ALL YALL FURRIES DO IS FUCK DOGS AND LOSE", person: "calmcashew"},
+				{quote: "You're holding illegal information from me\nI have your ip address, I could just report you\nFor holding illegal evidence against me, I have fucking money, I will take you to court\nDo you understand me\nI will through my savings\nto prove a fucking point", person: "Damien"},
+				{quote: "for every kid damien tries to groom, im going to knock a tooth out of him", person: "chatoff"},
+				{quote: "It would be dumb as fuck to nerf glock\nhour ago i wanted to fucking off myself", person: "Snowy Seraphim"},
+				{quote: "i only masturbate to games with a well designed gameplay\ni don't want to watch the 35069th sfm .webm of overwatch porn", person: "bro wtf"},
+				{quote: "there's also a 'rabiesexual' community where they have a pride flag for their sexuality is getting rabies from an animal", person: "Wire_"},
+				{quote: "yeah i hate the low tier fetishes\nlike bruh who even nuts to interracial", person: "bro wtf"},
+				{quote: "when i don't nut in a couple days it becomes real gooey\nbruh i bet my cock would be shut closed if i didn't nut for a year", person: "bro wtf"},
+				{quote: "I swallow cum.\nStfu and stop scaring me im trying to cum on girls dumb fucking crackers\nIm going to make my roomate feel my dick fury later.", person: "?gent ?rowbar"},
+				{quote: "Last thing you ever want to do is try to step up against me, I got nothing to lose online pal", person: "Damien"},
+				{quote: "These are all pictures forked from the npc fetish community known as death legends", person: "Damien"},
+				{quote: "If you can say my full name in spanish\nI will leave for good", person: "Damien"},
+				{quote: "Do you have a license for SCK lol", person: "Damien"},
+				{quote: "All good things must eventually come to an end..", person: "Damien"},
+				{quote: "Hey mute your mic\nYoure bi?\nSub or dom?\nDo you like dick or do you like to fuck\nYikes\nSorry pal, you gotta be 18 or older to ride", person: "Damien"},
+				{quote: "Femboys are so cute :)\nYou wanna talk? :eyes:", person: "Damien"},
+				{quote: "Damien left me about 290 messages last night and then deleted them by the time i woke up.", person: "Fimmy"},
+				
+				{quote: "a 1950s dad can beat me up any day", person: "Naturejazzy"},
+				{quote: "i havent slept in 2 days and im running on pure adrenaline", person: "Radical Larry"},
+				{quote: "DONT PUSH ME NIGGA", person: "ymbra.mgebrother.1969"},
+				{quote: "Coome here Nerinigg( its ok i can call her that we cool like that)"},
+				{quote: "DMT allows you to control the size of your penis at will", person: "pb"},
+				{quote: "HOW DO YOU BECOME INVISIBLE", person: "davisivie"},
+				{quote: "I had a friend who took peyote and said he wandered in the desert with moses for 40 years", person: "chatoff"},
+				
+				{quote: "guys\ni can speak alien launage\n???? ?? ?? ?????? ?????? ??? ????", person: "(Elite Member!) Cat (.-|^.^|-.)"},
+				{quote: "F U C K I NG B I T C H\nim not\nim white\nIM NOT\nI'M FUCKING W H I T E", person: "(Elite Member!) Cat (.-|^.^|-.)"},
+				{quote: "george floyd got what was coming to him", person: "Slenderwoman"},
+				{quote: "i dont discriminate against no upper teeth", person: "Slenderwoman"},
+				{quote: "'pretty mouth' is something a discord admin would call a 14 year old pansexual furry", person: "ancap johnny"},
+				{quote: "Do penises grow back?", person: "Hawk"},
+				{quote: "*DEAD* I literally am slitting my writs now\nlike I want to fucking kill myself\n/me cheers\nno joke\nlike fuck my life", person: "Big Bad Patrik: "},
+				{quote: "RIP\nAND TEAR\nUNTIL IT IS DONE", person: "geeks4lease"},
+				
+		
+				{quote: "jesus fuck I got hit with a nightmare and everything became an incomprehensible black and red", person: "Wire_vak.d420"},
+				{quote: "oy bruv were'd your teeth go? wacky innit!\ni fucking hate british people", person: "Nick or somethin' Idk"},
+				{quote: "fuck you this rifle is less accurate than my piss", person: "Crunchy"},
+				{quote: "my mom died giving birth to me\ncool rioght\nright", person: "Gr8ValueBriccsalot"},
+				{quote: "/advert [VIP] (OOC) BATHROOM WIZARD: is it weird that I tell my therapist about gmod drama?(WARN 1/2/3)", person: "Hawk"},
+				{quote: "any one want a dime ill suck yo dick for a dime #NOHOMO", person: "Sgt.Riley Ghost"},
+				{quote: "fuckign furry nigg er give me aneurysm then demand i cade", person: "Awwwyea"},
+				{quote: "ima eat some toes tonight\ngimmie da toes", person: "Ryokuza"},
+				{quote: "I need me some more zombie dick ya feel me\n*DEAD* I need me some human dick for that", person: "LaCha_Derp"},
+				{quote: "I feel like  a retrd, o wait I am one!", person: "ULSTER MAD"},
+				{quote: "RATHER DIE B4 I CUM IN LASTT", person: "diet meth"},
+				{quote: "bein a cader is like doing voluntary work except at some point its just enslavement with extra steps", person: "Iwrachn"},
+				{quote: "i legit got like a d cup man\nim thinking about going to get em measured\nyes\ni am actually 480 pounds", person: "A 480 lb. Teenage Boy"},
+				{quote: "lets go to prison so i can meet my dad", person: "A 480 lb. Teenage Boy"},
+				{quote: "if we harvested ur nipples it could feed a family or four", person: "Awwwyea"},
+				{quote: "the damn puke pus was so powerful it made my tampon shoot straight out", person: "shrewzy"},
+				{quote: "i spent 7 hours in the er because i couldnt piss and i vomited blood", person: "shrewzy: "},
+				{quote: "Critical All Call Types near Death low on Health Badly Hurt lightly Hurt Even Hit By a few Times By Player zombie [PZ] the PZ is Short for Player Zombies", person: "KB Patrick the Legendary"},
+				{quote: "*DEAD* you all need to work on your headcrab resist\nthe stoping of headcrabs", person: "Cpol"},	
+			];
+			
+			var novakQuotes = [
+				{quote: "I feel more with it when under the influence of 2-methyl-2-butanol"},
+				{quote: "i dont think this stuff has the same kidney cleaning power as beer though...."},
+				{quote: "if you wann be a tranny, fine, but if your gonna hit on me ill be pissed"},
+				{quote: "i hate being an addict. I can never find satisfaction. except from JEsus. I have a kit"},
+				{quote: "welll he may speak through me, but I am not God. He orcestrates awsome stuff"},
+				{quote: "im not fucking sround with OD yp djit tonight sntyway, juest pot  a lil 3fbpm Flubromazoam and 2m2b"},
+				{quote: "merry christmas, your not on phencyclidine so  youll get fucked up and die"},
+				{quote: "goood thing i joined a fraternity 6 years ago, or id be a fucknigga right now haha"},
+				{quote: "drink 2 pints of my blood and catch a buzz, drink it all and get smashed"},
+				{quote: "i know, but I have only experienced the perversion with my ex's, and they disnt talk about death and fucked shit"},
+				{quote: "ill just rape you if u do not comply, with a strapon, my peter dont like man ass"},
+				{quote: "burps are the worst, all i smell is gasoline-like"},
+				{quote: "i dont know whos dumber the zombies or me"},
+				{quote: "im rolling a blunt faggot"},
+				{quote: "well, i odered some fluntrazolam, and thught .1ml at 1mg/ml would be safe. straightstupor"},
+				{quote: "*DEAD* what dd i mis inmy 3 day hospitalstay?"},
+				{quote: "dude Ijust got fat shipment of N-ethylhexadrone,etizolam, and diclazepam and watched it all throw away"},
+				{quote: "*DEAD* my asshole ha been gaped"},
+				{quote: "i dont even do drugs bigman wtf"},
+				{quote: "scome into your fuck your daughter in the mouth, what"},
+				{quote: "strap on a jimmy cause i dont want a disease"},
+				{quote: "who ever came up with snitches get stiches didnt realize you cant stich up a neck stump"},
+				{quote: "u better get that checked before blood flow is cutoff, then ull lose a nut"},
+				{quote: "wheres all the thots at? I rarely seem to get them any more"},
+				{quote: "oh dear, the fat ones always blow up ones phone....."},
+				{quote: "of course, 2 new tinder matches, but they weigh at least 50lbs more than me :("},
+				{quote: "gamer grills at least cook me some fucking food after the fuck"},
+				{quote: "well at least the ladies know im hung"},
+				{quote: "oh i hope this gal isnt dirty tomorrow\noly caught me one stf from my ex"},
+				{quote: "if i close my eyes i feel like i can let go\nthats why cvb i gotta keep plating\n*palying\noh fuck"},
+				{quote: "im not buying an expensive jizzing strap on nigga\nu getting cold plastic"},
+				{quote: "ive been stabbed and beat\nim a glutton for pain"},
+				{quote: "thoese dude from Cry of fear r fucking scarhy\nlunatics\nonly game to ever scare me\nLIKE A CRACK RUSH ITS so scary"},
+				
+				{quote: "this reminds me of the time i flossed with cunt pubes"},
+				{quote: "my roomate is a lzy nigger that fries chicken and doesnt clean his fucking dishes"},
+		
+				{quote: "What if I'm already a circus freak and am the main attraction?"},
+				{quote: "I am pope nothing I do can be malicious\nYou will worship me and beg me not to punish and pay me money"},
+
+				{quote: "ive seen interdimensional beings on that many times. I suspect they are demons and angels\neither diazepam, temazepam, poppy tea and lyrica all at once, or when I ate 2c-b like it was mdma at a music festival, whic"},
+				{quote: "i lost alot of braincells. I dont entirley remember 100% now, as its old and i cent even remember what i ate for dinner yes"},
+				{quote: "dude how am igonna smoke my ganja with no mossmen?"},
+				{quote: "good thing i know how to paint and drywall, im not paying some fucker for easy shit"},
+				{quote: "cold as fuck here in chiraq"},
+				{quote: "I did get to talk to God when I died"},
+				{quote: "thats where it gets really complex...\nlucifer and satan"},
+				{quote: "*DEAD* at small doses the trip is great. its more powerful than any psychedelic ive tried, asided from DiMiTri"},
+				{quote: "I dont know I am not God. We are finding ne species daily that cant interbreed"},
+				{quote: "if i lived in a trailer id be trailer trashed im so trahed"},,
+				{quote: "drunk as a skinnny little white bitch"},
+				{quote: "yeah my West Coast Nigga"},
+				{quote: "lucky you. i imagine you can figure out what snow kittes are. of course i did"},
+				{quote: "The aliens are my mindd"},
+				{quote: "idk whats more gross, tert amyl alcohol or kratom. and i am ignorant to the cheshire. school me"},
+				{quote: "*DEAD* white people told me nanking so I knew no different till I spoke with an old filipino"},
+				{quote: "i thought traps were only drug houses befrore joining this sever lol"},
+				{quote: "*DEAD* i think im losng conciosousness and hanvng minisieziezures, just wetnt to nuero"},
+				{quote: "fnx: would you say dmt inbalances created islam?\nnovak.d420: mymyh reat uncle was gay\nhe pioneered modern mudic\nfnx: plato?\nnovak.d420: my great ucle\nfnx: LOL"},
+				{quote: "the dope out here is wwaaaaaaayyyyyyyy better than cali"},
+				{quote: "excuse me whie i slam some 2-methyl-2-butanol"},
+				{quote: "we;lll ull have peolle ot ply 2ithh 2hen i pass u"},
+				{quote: "u know what egyptian beer goggles are, right rolly?\nits when u place your testicles over the eyes"},
+				{quote: "*DEAD* I BET NONE OF OF YOU NIggas could ifuction like i am"},
+				{quote: "if im tooodrubk to gfucl and ismoked qwhhy give me a sbiper lmfao?"},
+				{quote: "im drunker than a redneck with moonshine"},
+				{quote: "nigga i used to slang it by the pound\ndef not cat litter\nim deaf not dumb\nwelll sorta"},
+				{quote: "im saying addiction could be solved like homosexuaality"},
+				{quote: "god farm map of course when im trippping"},
+				{quote: "all me pain will be gone in 90 minutes"},
+				{quote: "if my ass can stay alive and my carpet is moving, anyone should be able too"},
+				{quote: "fivl o ;odst acontact in me eye and cannt see"},
+				{quote: "saw the beings and myself die, which really happened 2months later\ni diedd in the same manner i saw myself die"},
+				{quote: "ive OD enough no more"},
+				{quote: "Zhing my technological min can figure out how to ass you"},
+				{quote: "hell i look at a mirror and the fucker falls off the walll"},
+				{quote: "novak.d420: I have scar tissue in many spots on my brain, hyes\nJolly Turtle: so what did god say to you\npb: press f2 to redeem"},
+				{quote: "hallucis and stims got me geeeeeeeeeeekkkkin"},
+				{quote: "i must be eating shit cause this grin is just getting wider and wider"},
+	
+				{quote: "Novak.d420 died from Fast Zombie\n*DEAD* Novak.d420:  cAANt find ww\nJuniper: Novak the keys on your keyboard don't move"},
+				{quote: "if i had no kqaava iiu ouldd l3vel  u-"},
+				{quote: "oh food is better than heroin tbh"},
+				{quote: "illl tell you guys something funny but terrible\ni got a medication increase and i cant cum"},
+			];
+			
+			var loadingImgs = [
+				{url: "https://i.imgur.com/W75HDyG.jpg"},
+				{url: "https://i.imgur.com/xkRUTTc.jpg"},
+				{url: "https://i.imgur.com/5AyzqZt.jpg"},
+				{url: "https://i.imgur.com/11ycfK5.jpg"},
+				{url: "https://i.imgur.com/VOv0zfN.jpg"},
+				{url: "https://i.imgur.com/F33QsW8.jpg"},
+				{url: "https://i.imgur.com/D6fC5j9.jpg"},
+			];
+			
+		</script>
+	</head>
+
+	<!-- #15ea00 old color -->
+	<!-- -->
+
+	<body>
+		<div class="container">
+			<h1 class="title">Deathlegends</h1>
+			<div>You're on your way to:</div>
+			<div>Zombie Outbreak</div>
+			
+			<!-- Use this once the event is over: -->
+			<h3 class="subtitle">News:</h3>
+			<div>Update 163 is now live!</div>  <!-- divs automatically start on the next line -->
+			Published: 7/8/2021<br>
+
+			<!-- <img class="picture" src="https://raw.githubusercontent.com/warbasher/warbasher.github.io/master/loadingurl/update.png"/> -->
+			<!-- use raw.githubusercontent = faster loading -->
+			<!-- img class="picture" src="https://i.imgur.com/2fA106P.png"/> -->
+
+			
+			<img class="picture" width="50%"/>
+
+			
+			<div class="quote">like when you're watching ur fav scene and the dude pulls out and her butthole is like the size of a dinner plate</div> <!-- placeholder -->
+			<div class="author">Nobody 2017</div>
+
+			<!--
+			<br><br>
+			<div class="novakQuote"></div>
+			<div class="novakAuthor">- Novak.d420</div>
+			-->
+		</div>
+	</body>
+</html>
+
+ 
+
